@@ -1,0 +1,165 @@
+{% extends 'fmsapp/layout.html' %}
+{% load static %}
+{% block title %} New Farm Stock{% endblock title %}
+{% block contents %}
+
+<h1>FarmStock Information</h1>
+  <div class="date">
+    <a href="{% url 'fms:all_farmstock' %}">Back To FarmStock List</a>
+  </div>
+  <div class="recent-orders-form">
+    <h2>Add New FarmStock </h2>
+    </div>
+    <section class="row">
+        <form action="" method='POST'>
+            {% csrf_token %}
+            <div class="formbold-mb-55">
+                <label for="name" class="formbold-form-label"> Name of FarmStock</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Full Name"
+                  class="formbold-form-input"
+                  required
+                />
+                <div class="formbold-mb-5 formbold-pt-3">
+                    <label for="description" class="formbold-form-label">
+                      Description
+                    </label>
+                    <div class="flex flex-wrap formbold--mx-3">
+                      <div class="w-full sm:w-half formbold-px-3">
+                        <div class="formbold-mb-5">
+                          <input
+                            type="text"
+                            name="description"
+                            id="description"
+                            placeholder="Enter Description"
+                            class="formbold-form-input"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <br>
+                <div class="formbold-mb-3">
+                    <label for="landarea" class="formbold-form-label"> FarmStock Total LandArea </label>
+                    <input
+                      type="number"
+                      name="landarea"
+                      id="landarea"
+                      placeholder="Total LandArea"
+                      class="formbold-form-input"
+                      required
+                    />
+                  </div>    
+              </div>
+              <br>
+            <button class="formbold-btn">  Submit</button>
+        </form>
+    </section>
+
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: poppins, sans-serif;
+        }
+        body {
+          font-family: "Inter", Arial, Helvetica, sans-serif;
+        }
+        .formbold-mb-55 {
+          margin-bottom: 12px;
+          min-width: 10px;
+          width: 60%;
+        }
+        .formbold-pt-3 {
+          padding-top: 12px;
+          width: 205%;
+         
+        }
+        .formbold-main-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 48px;
+        }
+      
+        .formbold-form-wrapper {
+          margin: 0 auto;
+          max-width: 550px;
+          width: 100%;
+          background: white;
+        }
+        .formbold-form-label {
+          display: block;
+          font-weight: 400;
+          font-size: 13.5px;
+          color: #07074d;
+          margin-bottom: 12px;
+        }
+        .formbold-form-label-2 {
+          font-weight: 600;
+          font-size: 15px;
+          margin-bottom: 20px;
+        }
+      
+        .formbold-form-input {
+          width: 100%;
+          padding: 12px 24px;
+          border-radius: 6px;
+          border: 1px solid #e0e0e0;
+          font-weight: 500;
+          font-size: 12px;
+          color: #6b7280;
+          outline: none;
+          resize: none;
+          margin-bottom: 5px;
+        }
+        .formbold-form-input:focus {
+          border-color: #6a64f1;
+          box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+        }
+      
+        .formbold-btn {
+          text-align: center;
+          font-size: 16px;
+          border-radius: 4px;
+          padding: 14px 28px;
+          border: none;
+          font-weight: 600;
+          background-color: #60dfc8;
+          color: white;
+          width: 15%;
+          cursor: pointer;
+        }
+        .formbold-btn:hover {
+          box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+        }
+      
+        .formbold--mx-3 {
+          margin-left: -12px;
+          margin-right: -12px;
+        }
+        .formbold-px-3 {
+          padding-left: 12px;
+          padding-right: 12px;
+        }
+        .flex {
+          display: flex;
+        }
+        .flex-wrap {
+          flex-wrap: wrap;
+        }
+        .w-full {
+          width: 100%;
+        }
+        @media (min-width: 540px) {
+          .sm\:w-half {
+            width: 50%;
+          }
+        }
+    </style>
+{% endblock contents %}

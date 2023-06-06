@@ -1,0 +1,149 @@
+{% extends 'fmsapp/layout.html' %}
+{% load static %}
+
+{% block title %} FMS | Home {% endblock title %}
+
+{% block contents %}
+<h1>Dashboard</h1>
+        <div class="date">
+          <h3>LiveStock Sales Statistics</h3>
+        </div>
+        <!-- =================== START OF INSIGHTS =================== -->
+        <div class="insights">
+          <!-- =================== START OF SALES =================== -->
+          <div class="sales">
+            <span class="material-icons-sharp">analytics</span>
+            <div class="middle">
+              <div class="left">
+                <h3>Total Sales</h3>
+                <h1>&euro;{{stocklist.sell__sum}}</h1>
+              </div>
+              <div class="progress">
+                <svg>
+                  <circle cx="38" cy="38" r="36"></circle>
+                </svg>
+                <div class="number">
+                  <p>81%</p>
+                </div>
+              </div>
+            </div>
+            <small class="text-muted"></small>
+          </div>
+          <!-- =================== END OF SALES =================== -->
+
+          <!-- =================== START OF EXPENSES =================== -->
+          <div class="expenses">
+            <span class="material-icons-sharp">bar_chart</span>
+            <div class="middle">
+              <div class="left">
+                <h3>Total Expenses</h3>
+                <h1>&euro;{{stocklistexp.expense__sum}}</h1>
+              </div>
+              <div class="progress">
+                <svg>
+                  <circle cx="38" cy="38" r="36"></circle>
+                </svg>
+                <div class="number">
+                  <p>62%</p>
+                </div>
+              </div>
+            </div>
+            <small class="text-muted"></small>
+          </div>
+          <!-- =================== END OF EXPENSES =================== -->
+
+          <!-- =================== START OF INCOME =================== -->
+          <div class="income">
+            <span class="material-icons-sharp">stacked_line_chart</span>
+            <div class="middle">
+              <div class="left">
+                <h3>Total Income</h3>
+                <h1>&euro;{{ stocklistinc }}</h1>
+              </div>
+              <div class="progress">
+                <svg>
+                  <circle cx="38" cy="38" r="36"></circle>
+                </svg>
+                <div class="number">
+                  <p>44%</p>
+                </div>
+              </div>
+            </div>
+            <small class="text-muted"></small>
+          </div>
+          <!-- =================== END OF INCOME =================== -->
+        </div>
+        <!-- =================== START OF INSIGHTS =================== -->
+
+        <!-- =================== START OF RECENT ORDER =================== -->
+          <div class="date">
+            <h3>Farm Sales Statistics</h3>
+          </div>
+          <!-- =================== START OF INSIGHTS =================== -->
+          <div class="insights">
+            <!-- =================== START OF SALES =================== -->
+            <div class="sales">
+              <span class="material-icons-sharp">analytics</span>
+              <div class="middle">
+                <div class="left">
+                  <h3>Total Sales</h3>
+                  <h1>&euro;{{stocklistf.sell__sum}}</h1>
+                </div>
+                <div class="progress">
+                  <svg>
+                    <circle cx="38" cy="38" r="36"></circle>
+                  </svg>
+                  <div class="number">
+                    <p>81%</p>
+                  </div>
+                </div>
+              </div>
+              <small class="text-muted"></small>
+            </div>
+            <!-- =================== END OF SALES =================== -->
+  
+            <!-- =================== START OF EXPENSES =================== -->
+            <div class="expenses">
+              <span class="material-icons-sharp">bar_chart</span>
+              <div class="middle">
+                <div class="left">
+                  <h3>Total Expenses</h3>
+                  <h1>&euro;{{stocklistexpf.expense__sum}}</h1>
+                </div>
+                <div class="progress">
+                  <svg>
+                    <circle cx="38" cy="38" r="36"></circle>
+                  </svg>
+                  <div class="number">
+                    <p>62%</p>
+                  </div>
+                </div>
+              </div>
+              <small class="text-muted"></small>
+            </div>
+            <!-- =================== END OF EXPENSES =================== -->
+  
+            <!-- =================== START OF INCOME =================== -->
+            <div class="income">
+              <span class="material-icons-sharp">stacked_line_chart</span>
+              <div class="middle">
+                <div class="left">
+                  <h3>Total Income</h3>
+                  <h1>&euro;{{ stocklistincf }}</h1>
+                </div>
+                <div class="progress">
+                  <svg>
+                    <circle cx="38" cy="38" r="36"></circle>
+                  </svg>
+                  <div class="number">
+                    <p>44%</p>
+                  </div>
+                </div>
+              </div>
+              <small class="text-muted"></small>
+            </div>
+            <!-- =================== END OF INCOME =================== -->
+          </div>
+          
+
+{% endblock contents %}

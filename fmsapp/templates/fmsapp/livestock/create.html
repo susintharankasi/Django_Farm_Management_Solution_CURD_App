@@ -1,0 +1,145 @@
+{% extends 'fmsapp/layout.html' %}
+{% load widget_tweaks %} 
+{% load static %}
+{% block title %} New Livestock Addition{% endblock title %}
+{% block contents %}
+    <h1>Add New LiveStock Associated Data</h1>
+    <div class="date">
+      <a href="{% url 'fms:all_livestock' %}">Back To LiveStock data</a>
+    </div>
+    <div class="recent-orders-form">
+      </div>
+      <section class="row">
+          <form action="" method='POST'>
+              {% csrf_token %}
+              <div class="formbold-mb-55">
+                <label for="department" class="formbold-form-label"> Select LiveStock in Farm</label>
+                {% render_field form.department placeholder="Select LiveStock in Farm" class="formbold-form-input"%}
+              </div>
+              <div class="formbold-mb-55">
+                <label for="date" class="formbold-form-label"> Select Date</label>
+                {% render_field form.date placeholder="Date" class="formbold-form-input" type="date" %}
+              </div>
+              <div class="formbold-mb-55">
+                <label for="time" class="formbold-form-label"> Select Time</label>
+                {% render_field form.time placeholder="Time" class="formbold-form-input" type="time" %}
+              </div>
+              <div class="formbold-mb-55">
+                <label for="quantity" class="formbold-form-label"> Enter Product Quantity in Numbers</label>
+                {% render_field form.quantity placeholder="Kgs / Litres" class="formbold-form-input"%}
+              </div>
+              <div class="formbold-mb-55">
+                <label for="sell" class="formbold-form-label"> Selling Price</label>
+                {% render_field form.sell placeholder="Selling Price" class="formbold-form-input"%}
+              </div>
+              <div class="formbold-mb-55">
+                <label for="expense" class="formbold-form-label"> Expense Spent on Product</label>
+                {% render_field form.expense placeholder="Expense on Product" class="formbold-form-input"%}
+              </div>
+              <button class="formbold-btn">  Submit</button>
+          </form>
+      </section>
+  
+      <style>
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: poppins, sans-serif;
+          }
+          body {
+            font-family: "Inter", Arial, Helvetica, sans-serif;
+          }
+          .formbold-mb-55 {
+            margin-bottom: 9px;
+            min-width: 10px;
+            width: 50%;
+          }
+          .formbold-pt-3 {
+            padding-top: 12px;
+            width: 205%;
+           
+          }
+          .formbold-main-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 48px;
+          }
+        
+          .formbold-form-wrapper {
+            margin: 0 auto;
+            max-width: 550px;
+            width: 100%;
+            background: white;
+          }
+          .formbold-form-label {
+            display: block;
+            font-weight: 400;
+            font-size: 13.5px;
+            color: #07074d;
+            margin-bottom: 12px;
+          }
+          .formbold-form-label-2 {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 20px;
+          }
+        
+          .formbold-form-input {
+            width: 100%;
+            padding: 12px 24px;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+            font-weight: 500;
+            font-size: 12px;
+            color: #6b7280;
+            outline: none;
+            resize: none;
+            margin-bottom: 5px;
+          }
+          .formbold-form-input:focus {
+            border-color: #6a64f1;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+          }
+        
+          .formbold-btn {
+            text-align: center;
+            font-size: 16px;
+            border-radius: 4px;
+            padding: 10px 22px;
+            border: none;
+            font-weight: 600;
+            background-color: #60dfc8;
+            color: white;
+            width: 15%;
+            cursor: pointer;
+          }
+          .formbold-btn:hover {
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+          }
+        
+          .formbold--mx-3 {
+            margin-left: -12px;
+            margin-right: -12px;
+          }
+          .formbold-px-3 {
+            padding-left: 12px;
+            padding-right: 12px;
+          }
+          .flex {
+            display: flex;
+          }
+          .flex-wrap {
+            flex-wrap: wrap;
+          }
+          .w-full {
+            width: 100%;
+          }
+          @media (min-width: 540px) {
+            .sm\:w-half {
+              width: 50%;
+            }
+          }
+      </style>
+{% endblock contents %}

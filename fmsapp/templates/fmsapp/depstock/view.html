@@ -1,0 +1,104 @@
+{% extends 'fmsapp/layout.html' %}
+{% load static %}
+{% block title %}
+Stock Information
+{% endblock title %}
+
+{% block contents %}
+<h1>LiveStock Information</h1>
+  <div class="date">
+    <a href="{% url 'fms:create_deptstock' %}">Add New LiveStock</a>
+  </div>
+  <div class="recent-orders">
+    <h2>LiveStock Added</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>LiveStock Name</th>
+          <th>Total Count</th>
+          <th>Description</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%  if  stocklist%}
+        {% for dl in stocklist  %}
+        <tr>
+          <td><b>{{dl.name}}</b></td>
+          <td>{{dl.count}}</td>
+          <td>{{dl.description}}</td>
+          <td class="primary"><a href="{% url 'fms:deptstock_edit' pk=dl.pk %}">UpDate</a></td>
+          <td><a style="color: #c76868;" href="{% url 'fms:deptstock_delete' pk=dl.pk %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+          <td>No Data Found</td>
+          <td>No Data Found</td>
+          <td>No Data Found</td>
+          <td class="warning">No Data Found</td>
+          <td class="primary">No Data Found</td>
+        </tr>
+        {%endif%}
+      </tbody>
+    </table>
+
+  </div>
+{% endblock contents  %}
+
+{% block body %}
+<style>
+  .message ul {
+  position: relative;
+  border-radius: 30px;
+}
+  .message ul:hover li {
+    opacity: 0.2;
+    border-radius: 30px;
+}
+
+ .message ul li {
+  list-style: none;
+  padding: 10px;
+  width: 100%;
+  box-shadow: 0 5px 25px rgb(0, 0, 0,.1);
+  transition: transform 0.5s;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 12px;
+ }
+
+ .message ul li:hover {
+  transform: scale(1.1);
+  z-index: 100;
+  background: #4fe4bd;
+  box-shadow: 0 5px 25px rgba(0,0,0,.2);
+  color: #fff;
+  opacity: 1;
+
+ }
+
+
+ .message ul li:hover span {
+  color: #4fe4bd;
+
+ }
+</style>
+<body>
+<div class="recent-updates">
+  <h2>Total LiveStock Added by User</h2>
+  <div class="updates">
+    <div class="message"> 
+      <ul >
+        {% for dl in stocklist  %}
+        <li>
+          <span><a href="{% url 'fms:livestock_single' pk=dl.id %}">{{dl.name}}</a></span>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+{% endblock %}

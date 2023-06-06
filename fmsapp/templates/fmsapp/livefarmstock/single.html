@@ -1,0 +1,57 @@
+{% extends 'fmsapp/layout.html' %}
+{% load static %}
+{% block title %}
+{{livefarmsp.name}} 
+{% endblock title %}
+
+{% block contents %}
+  <h1>Individual FarmStock Associated Information</h1>
+  <div class="date">
+    <a href="{% url 'fms:all_farmstock' %}">Back to Farmstock</a>
+  </div>
+  <div class="recent-orders">
+    <h2>Associated FarmStock Data</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>FarmStock Name</th>
+          <th>Crop Type</th>
+          <th>Harvest Date</th>
+          <th>Created Time</th>
+          <th>Total Quantity</th>
+          <th>Selling Date</th>
+          <th>Sell</th>
+          <th>Expense</th>
+        </tr>
+      </thead>
+      <br>
+      <tbody>
+        {% if livefarmsp %}
+        {% for stf in livefarmsp %}
+        <tr>
+          <td><b>{{stf.farmdepartment | capfirst}}</b></td>
+          <td>{{stf.crop| capfirst}}</td>
+          <td>{{stf.harvestdate| capfirst}}</td>
+          <td>{{stf.time| capfirst}}</td>
+          <td class="primary">{{stf.quantity}}</td>
+          <td>{{stf.sellingdate| capfirst}}</td>
+          <td class="primary">{{stf.sell}}</td>
+          <td style="color: #d9a985;" >{{stf.expense}}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+          <td>No Data Found</td>
+          <td>No Data Found</td>
+          <td>No Data Found</td>
+          <td>No Data Found</td>
+          <td>No Data Found</td>
+          <td>No Data Found</td>
+        </tr>
+        {%endif%}
+      </tbody>
+    </table>
+
+  </div>
+{% endblock contents  %}
+

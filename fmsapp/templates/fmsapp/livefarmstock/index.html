@@ -1,0 +1,63 @@
+{% extends 'fmsapp/layout.html' %}
+{% load static %}
+{% block title %}
+All Farm List
+{% endblock title %}
+
+{% block contents %}
+<h1>Individual FarmStock Associated Information</h1>
+<div class="date">
+  <a href="{% url 'fms:create_livefarmstock' %}">Add FarmStock Daily Data</a>
+</div>
+<div class="recent-orders">
+  <h2>Total FarmStock List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>FarmStock Name</th>
+        <th>Crop Type</th>
+        <th>Harvest Date</th>
+        <th>Created Time</th>
+        <th>Total Quantity</th>
+        <th>Selling Date</th>
+        <th>Sell</th>
+        <th>Expense</th>
+        <th>UpDate</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <br>
+    <tbody>
+      {%if livefarmlist %}
+      {% for lsl in livefarmlist  %}
+      <tr>
+        <td><b>{{lsl.farmdepartment | capfirst}}</b></td>
+        <td>{{lsl.crop| capfirst}}</td>
+        <td>{{lsl.harvestdate| capfirst}}</td>
+        <td>{{lsl.time| capfirst}}</td>
+        <td class="primary">{{lsl.quantity}}</td>
+        <td>{{lsl.sellingdate| capfirst}}</td>
+        <td class="primary">{{lsl.sell}}</td>
+        <td style="color: #d9a985;" >{{lsl.expense}}</td>
+        <td class="primary"><a href="{% url 'fms:livefarm_edit' pk=lsl.pk %}" >UpDate</a></td>
+        <td><a style="color: #c76868;" href="{% url 'fms:livefarm_delete' pk=lsl.pk %}">Delete</a></td>
+      </tr>
+      {% endfor %}
+      {% else %}
+      <tr>
+        <td>No Data Found</td>
+        <td>No Data Found</td>
+        <td>No Data Found</td>
+        <td>No Data Found</td>
+        <td>No Data Found</td>
+        <td>No Data Found</td>
+        <td>No Data Found</td>
+        <td>No Data Found</td>
+      </tr>
+      {%endif%}
+    </tbody>
+  </table>
+
+</div>
+
+{% endblock contents  %}

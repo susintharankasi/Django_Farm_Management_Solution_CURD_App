@@ -1,0 +1,50 @@
+{% load static %}
+<aside>
+    <!-- =================== START OF TOP =================== -->
+    <div class="top">
+      <!-- =================== START OF LOGO =================== -->
+      <div class="logo">
+        <h2> &emsp; &emsp; &emsp;<span class="danger">FMS</span></h2>
+      </div>
+      <!-- =================== END OF LOGO =================== -->
+
+      <!-- =================== START OF CLOSE ICON =================== -->
+      <div class="close" id="close-btn">
+        <span class="material-icons-sharp">close</span>
+      </div>
+      <!-- =================== END OF CLOSE ICON =================== -->
+    </div>
+    <!-- =================== END OF TOP =================== -->
+
+    <!-- =================== START OF SIDEBAR =================== -->
+    <div class="sidebar">
+        
+      <a href="/dashboard" class="active">
+        <span class="material-icons-sharp">dashboard</span>
+        <h3>Dashboard</h3>
+      </a>
+      <a href="{% url 'fms:all_stock' %}">
+        <span class="material-icons-sharp">inventory</span>
+        <h3>LiveStock</h3>
+      </a>
+      <a href="{% url 'fms:all_livestock' %}" >
+        <span class="material-icons-sharp">add</span>
+        <h3>Add Livestock Data</h3>
+      </a>
+      <a href="{% url 'fms:all_farmstock' %}">
+        <span class="material-icons-sharp">inventory</span>
+        <h3>Farm</h3>
+      </a>
+      <a href="{% url 'fms:all_livefarmstock' %}">
+        <span class="material-icons-sharp">add</span>
+        <h3>Add Farm Data</h3>
+      </a>
+      <a href="{% url 'fmsapp:logout' %}">
+        <span class="material-icons-sharp">logout</span>
+        <h3>Logout</h3>
+      </a>
+
+    </div>
+    <!-- =================== END OF SIDEBAR =================== -->
+  </aside>
+  <!-- =================== END OF ASIDE =================== -->

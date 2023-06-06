@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FMS | Dashboard</title>
+    <!-- MATERIAL CDN -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+    />
+    <!-- STYLESHEET -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/layout.css' %}" />
+  </head>
+  <body>
+    <!-- =================== START OF CONTAINER =================== -->
+    <div class="container">
+      
+      <!-- MENU SIDEBAR-->
+      {% include 'fmsapp/sidebar.html' %}
+      <!-- END MENU SIDEBAR-->
+      <!-- =================== END OF ASIDE =================== -->
+
+      <!-- =================== START OF MAIN =================== -->
+      <main>
+        {% block contents %}
+        {% endblock contents %}
+      </main>
+      <!-- =================== END OF MAIN =================== -->
+
+      <!-- =================== START OF RIGHT =================== -->
+      <div class="right">
+        <!-- =================== START OF TOP =================== -->
+        <div class="top">
+          <button id="menu-btn">
+            <span class="material-icons-sharp">menu</span>
+          </button>
+          <div class="theme-toggler">
+            <span class="active material-icons-sharp">light_mode</span>
+            <span class="material-icons-sharp">dark_mode</span>
+          </div>
+          <div class="profile">
+            <div class="info">
+              <p>Hey, <span id="firstName"><a href="{% url 'fmsapp:account_update' pk=user.pk %}"><b>{{request.user.first_name | upper}}</b></a></span></p> 
+              <small class="text-muted" id="lastName" >{{request.user.last_name | upper}}</small>    
+            </div>
+            <div id="profileImage"></div>
+          </div>
+        </div>
+        <!-- =================== END OF TOP =================== -->
+        {% block body %}
+        {% endblock %}
+      </div>
+      <!-- =================== END OF RIGHT =================== -->
+    </div>
+    <!-- =================== END OF CONTAINER =================== -->
+    {% load static %}
+    <script src="{% static '/js/layout1.js' %}" ></script>
+    <script src="{% static '/js/layout2.js' %}" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+      var firstName = $('#firstName').text();
+      var lastName = $('#lastName').text();
+      var intials = $('#firstName').text().charAt(0) + $('#lastName').text().charAt(0);
+      var profileImage = $('#profileImage').text(intials);
+      });
+    </script>
+    <div class="copyright" >
+      <p style="text-align: center;" >Copyright © 2023 Farm Management Solutions. All rights reserved.</p>
+    </div>
+  </body>
+</html>

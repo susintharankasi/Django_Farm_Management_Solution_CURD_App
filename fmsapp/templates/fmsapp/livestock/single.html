@@ -1,0 +1,53 @@
+{% extends 'fmsapp/layout.html' %}
+{% load static %}
+{% block title %}
+{{livestocksp.name}} 
+{% endblock title %}
+
+{% block contents %}
+  <h1>Individual LiveStock Associated Information</h1>
+  <div class="date">
+    <a href="{% url 'fms:all_stock' %}">Back to Livestock</a>
+  </div>
+  <div class="recent-orders">
+    <h2>Associated Livestock Data</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>LiveStock Name</th>
+          <th>Created date</th>
+          <th>Created Time</th>
+          <th>Total Quantity</th>
+          <th>Sell</th>
+          <th>Expense</th>
+        </tr>
+      </thead>
+      <br>
+      <tbody>
+        {% if livestocksp %}
+        {% for stf in livestocksp %}
+        <tr>
+          <td><b>{{stf.department | capfirst}}</b></td>
+          <td>{{stf.date}}</td>
+          <td>{{stf.time}}</td>
+          <td class="primary">{{stf.quantity}}</td>
+          <td class="primary">{{stf.sell}}</td>
+          <td>{{stf.expense}}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+          <td>No Data Found</td>
+          <td>No Data Found</td>
+          <td>No Data Found</td>
+          <td>No Data Found</td>
+          <td>No Data Found</td>
+          <td>No Data Found</td>
+        </tr>
+        {%endif%}
+      </tbody>
+    </table>
+
+  </div>
+{% endblock contents  %}
+

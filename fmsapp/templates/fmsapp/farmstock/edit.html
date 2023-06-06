@@ -1,0 +1,146 @@
+{% extends 'fmsapp/layout.html' %}
+{% load widget_tweaks %} 
+{% load static %}
+{% block title %} Edit FarmStock{% endblock title %}
+{% block contents %}
+<h1>FarmStock Information</h1>
+  <div class="date">
+    <a href="{% url 'fms:all_farmstock' %}">Back To FarmStock List</a>
+  </div>
+  <div class="recent-orders-form">
+    <h2>Update FarmStock </h2>
+    </div>
+    <section class="row">
+        <form action="" method='POST'>
+            <table>
+            {% csrf_token %}
+            <div class="formbold-mb-55">
+                <label for="name" class="formbold-form-label"> Name of FarmStock</label>
+                {% render_field form.name placeholder="Name" class="formbold-form-input"%}
+            </div>
+            <div class="formbold-mb-55">
+                <label for="description" class="formbold-form-label"> Description</label>
+                {% render_field form.description placeholder="Description" class="formbold-form-input"%}
+            </div>
+            <div class="formbold-mb-55">
+                <label for="landarea" class="formbold-form-label"> LiveStock Total LandArea</label>
+                {% render_field form.landarea placeholder="LiveStock Total LandArea" class="formbold-form-input"%}
+            </div>
+            <br>
+            <button class="formbold-btn">  Submit</button>
+        </table>
+        </form>
+    </section>
+
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: poppins, sans-serif;
+        }
+        body {
+          font-family: "Inter", Arial, Helvetica, sans-serif;
+        }
+        .formbold-mb-55 {
+          margin-bottom: 12px;
+          min-width: 10px;
+          width: 70%;
+          border-radius: 5px;
+        }
+
+        .formbold-mb-50 {
+          margin-bottom: 50px;
+          min-width: 30px;
+          width: 70%;
+          border-radius: 5px;
+        }
+        .formbold-pt-3 {    
+          padding-top: 12px;
+          width: 122%;
+          border-radius: 30px;
+         
+        }
+        .formbold-main-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 48px;
+        }
+      
+        .formbold-form-wrapper {
+          margin: 0 auto;
+          max-width: 550px;
+          width: 100%;
+          background: white;
+        }
+        .formbold-form-label {
+          display: block;
+          font-weight: 400;
+          font-size: 13.5px;
+          color: #07074d;
+          margin-bottom: 12px;
+        }
+        .formbold-form-label-2 {
+          font-weight: 600;
+          font-size: 15px;
+          margin-bottom: 20px;
+        }
+      
+        .formbold-form-input {
+          width: 100%;
+          padding: 12px 24px;
+          border-radius: 6px;
+          border: 1px solid #e0e0e0;
+          font-weight: 500;
+          font-size: 12px;
+          color: #6b7280;
+          outline: none;
+          resize: none;
+          margin-bottom: 5px;
+        }
+        .formbold-form-input:focus {
+          border-color: #6a64f1;
+          box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+        }
+      
+        .formbold-btn {
+          text-align: center;
+          font-size: 16px;
+          border-radius: 4px;
+          padding: 14px 28px;
+          border: none;
+          font-weight: 600;
+          background-color: #60dfc8;
+          color: white;
+          width: 15%;
+          cursor: pointer;
+        }
+        .formbold-btn:hover {
+          box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+        }
+      
+        .formbold--mx-3 {
+          margin-left: -12px;
+          margin-right: -12px;
+        }
+        .formbold-px-3 {
+          padding-left: 12px;
+          padding-right: 12px;
+        }
+        .flex {
+          display: flex;
+        }
+        .flex-wrap {
+          flex-wrap: wrap;
+        }
+        .w-full {
+          width: 100%;
+        }
+        @media (min-width: 540px) {
+          .sm\:w-half {
+            width: 50%;
+          }
+        }
+    </style>
+{% endblock contents %}

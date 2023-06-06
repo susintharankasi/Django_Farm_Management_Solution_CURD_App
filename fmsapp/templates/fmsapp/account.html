@@ -1,0 +1,215 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> FMS | Account Update </title>
+    {% load static %}
+    <link rel="shortcut icon" type="image/png" href="{%static 'fmsapp/images/logo.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{%static 'fmsapp/images/logo.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{%static 'fmsapp/images/logo.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{%static 'fmsapp/images/logo.png' %}">
+    <link rel="manifest" href="{%static 'fmsapp/images/logo.png' %}" >
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.container {
+    position: absolute;
+    left: -10%;
+    width: 120%;
+    height: 100vh;
+}
+
+.container #scene .layer{
+    /*position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;*/
+    position: relative;
+    display: flow-root;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.container #scene .layer img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+/* Form */
+
+#form-title{
+    font-size: 1.4em;
+    color: #000000;
+    text-align: center;
+}
+.form-box{
+    position: relative;
+    width: 450px;
+    height: 620px;
+    background: transparent;
+    border: 2px solid rgba(6, 6, 6, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inputbox{
+    position: relative;
+    margin: 30px 0;
+    width: 310px;
+    border-bottom: 2px solid #000000;
+}
+.inputbox label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #000000;
+    font-size: 1em;
+    pointer-events: none;
+    transition: .5s;
+}
+input:focus ~ label,
+input:valid ~ label{
+top: -5px;
+}
+.inputbox input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding:0 35px 0 5px;
+    color: #000000;
+}
+.inputbox ion-icon{
+    position: absolute;
+    right: 8px;
+    color: #000000;
+    font-size: 1.2em;
+    top: 20px;
+}
+
+button{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background: #95dcce;
+    border: 2px solid rgba(6, 6, 6, 0.5);
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+}
+.register{
+    font-size: .9em;
+    color: #000000;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+.register p a{
+    text-decoration: none;
+    color: #000000;
+    font-weight: 600;
+}
+.register p a:hover{
+    text-decoration: underline;
+}
+    </style>
+
+</head>
+{% load static %}
+<body>
+    <section>
+        {% load static %}      
+        <div class="container">
+            <div id="scene">
+                <div class="layer" data-depth-x = "-0.5"
+                data-depth-y = "0.25">
+                <img src="{%static 'fmsapp/images/hill1.png' %}" id="hill1">
+                <img src="{%static 'fmsapp/images/hill2.png' %}" id="hill2">
+                <img src="{%static 'fmsapp/images/hill3.png' %}" id="hill3">
+                <img src="{%static 'fmsapp/images/hill4.png' %}" id="hill4">
+                <img src="{%static 'fmsapp/images/hill5.png' %}" id="hill5">
+                <img src="{%static 'fmsapp/images/tree.png' %}" id="tree">
+                <img src="{%static 'fmsapp/images/leaf.png' %}" id="leaf">
+                <img src="{%static 'fmsapp/images/plant.png' %}" id="plant">
+                </div>
+            </div>
+        </div>
+        <div class="form-box">
+			<div class="form-value">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <h3 id="form-title">Update your FMS account</h3>
+                    <div class="inputbox">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <input type="text" name="first_name" required >
+                        <label for="">First Name</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <input type="text" name="last_name" required >
+                        <label for="">Last Name</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="text" name="username" required>
+                        <label for="">Username</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" name="password1" required >
+                        <label for="">Password</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" name="password2" required >
+                        <label for="">Password  confirmation</label>
+                    </div>
+                    <button>Submit</button>
+                    <!--
+                    <div class="button">
+                        <input type="submit" value="Register">
+                    </div>-->
+                    <div class="register">
+                        <p>Login To FMS Account &emsp;<a href="{% url 'fms:login' %}">Log in</a></p>
+                    </div>
+                </form>
+		    </div>
+	    </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js" integrity="sha512-/6TZODGjYL7M8qb7P6SflJB/nTGE79ed1RfJk3dfm/Ib6JwCT4+tOfrrseEHhxkIhwG8jCl+io6eaiWLS/UX1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{%static 'fmsapp/js/script.js' %}" ></script>  
+</body>
+</html>
