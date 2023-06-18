@@ -1,2 +1,2 @@
 # FMS
-Fish Farm Management System in Django
+Farm Management System in Django
